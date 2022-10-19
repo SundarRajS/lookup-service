@@ -1,0 +1,12 @@
+{
+  "name": "backend-boilerplate",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cd app && ./gradlew build",
+    "start": "java -jar app/build/libs/spring-boot-boilerplate-0.0.1-SNAPSHOT-plain.jar",
+    "test": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "^9.7.0"
+  }
+}

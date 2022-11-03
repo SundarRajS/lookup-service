@@ -25,10 +25,6 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-devtools:2.7.5'
 	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '3.1.4'
-	implementation group: 'io.github.resilience4j', name: 'resilience4j-retry', version: '1.7.1'
-	implementation group: 'io.github.resilience4j', name: 'resilience4j-circuitbreaker', version: '1.7.1'
-	implementation group: 'io.github.resilience4j', name: 'resilience4j-spring-boot2', version: '1.7.1'
-	implementation group: 'io.github.resilience4j', name: 'resilience4j-ratelimiter', version: '1.7.1'
 }
 
 tasks.named('test') {

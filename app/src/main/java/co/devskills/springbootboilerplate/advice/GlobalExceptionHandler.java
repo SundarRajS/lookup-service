@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import co.devskills.springbootboilerplate.exception.ApplicationException;
 import co.devskills.springbootboilerplate.exception.ErrorDetails;
+import feign.FeignException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -19,6 +20,13 @@ public class GlobalExceptionHandler {
 		ErrorDetails error = new ErrorDetails(applicationException.getErrorCode(),
 				applicationException.getErrorMessage(), new Date(), webRequest.getDescription(false));
 		return new ResponseEntity<ErrorDetails>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+
+	@ExceptionHandler(FeignException.class)
+	public ResponseEntity<ErrorDetails> feignExceptionHandler(FeignException feignException, WebRequest webRequest) {
+		ErrorDetails error = new ErrorDetails(feignException.status(), feignException.getMessage(), new Date(),
+				webRequest.getDescription(false));
+		return new ResponseEntity<ErrorDetails>(error, HttpStatus.valueOf(feignException.status()));
 	}
 
 }

@@ -1,23 +1,21 @@
 package co.devskills.springbootboilerplate;
 
+import javax.sql.DataSource;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableFeignClients
+@EnableCaching
 public class SpringBootBoilerplateApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootBoilerplateApplication.class, args);
-	}
-
-	@Bean
-	public RestTemplate springRestTemplate(RestTemplateBuilder restTemplateBuilder) {
-		return restTemplateBuilder.build();
 	}
 
 }

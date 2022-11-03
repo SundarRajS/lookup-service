@@ -19,4 +19,6 @@ public class CreditData {
 	private int balance_of_debt;
 
 	private boolean complaints;
+	
+	private String address;
 }
